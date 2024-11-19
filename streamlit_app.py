@@ -17,7 +17,7 @@ num_images = len(images_dict[directories[0]])
 
 # streamlit で画像を表示
 st.title("bounding box比較")
-st.header("左からVGTモデルの閾値50, 40, 30")
+st.header("左からVGTモデルの閾値0.5, 0.4, 0.3")
 for i in range(num_images):
     cols = st.columns(len(directories))
     for col, directory in zip(cols, directories):
