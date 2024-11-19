@@ -18,9 +18,11 @@ num_images = len(images_dict[directories[0]])
 # streamlit で画像を表示
 st.title("bounding box比較")
 st.header("左からVGTモデルの閾値50, 40, 30, 20, 10")
+desired_width = 150  # 画像の幅を設定（ピクセル単位）
 for i in range(num_images):
     cols = st.columns(len(directories))
     for col, directory in zip(cols, directories):
         image_path = images_dict[directory][i]
         with col:
-            col.image(Image.open(image_path), caption=f"{directory} - page_{i + 1}.png", use_column_width=True)
+            # 画像の幅を設定
+            col.image(Image.open(image_path), caption=f"{directory} - page_{i + 1}.png", width=desired_width)
