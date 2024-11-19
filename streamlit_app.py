@@ -3,7 +3,7 @@ import os
 from PIL import Image
 
 # 閾値ごとのディレクトリ名
-thresholds = [50, 40, 30]
+thresholds = [50, 40, 30, 20, 10]
 directories = [os.path.join("data", f"NA-FA8H2_with_bboxes_threshold_{threshold}") for threshold in thresholds]
 
 # 各ディレクトリにある画像ファイルを取得
@@ -16,7 +16,8 @@ for directory in directories:
 num_images = len(images_dict[directories[0]])
 
 # streamlit で画像を表示
-st.title("Threshold Comparison")
+st.title("bounding box比較")
+st.header("左からVGTモデルの閾値50, 40, 30, 20, 10")
 for i in range(num_images):
     cols = st.columns(len(directories))
     for col, directory in zip(cols, directories):
