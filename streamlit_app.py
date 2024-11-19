@@ -22,4 +22,5 @@ for i in range(num_images):
     cols = st.columns(len(directories))
     for col, directory in zip(cols, directories):
         image_path = images_dict[directory][i]
-        col.image(Image.open(image_path), caption=f"{directory} - page_{i + 1}.png")
+        with col:
+            col.image(Image.open(image_path), caption=f"{directory} - page_{i + 1}.png", use_column_width=True)
